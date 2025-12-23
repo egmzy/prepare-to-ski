@@ -4,7 +4,12 @@ A beautiful, TV-friendly workout timer app designed for a 40-day ski trip prepar
 
 ![Prepare to Ski](https://img.shields.io/badge/React-19-blue?logo=react) ![Vite](https://img.shields.io/badge/Vite-5-purple?logo=vite) ![License](https://img.shields.io/badge/License-MIT-green)
 
-**[🎿 Live Demo](https://prepare-to-ski.netlify.app)**
+**[Live Demo](https://prepare-to-ski.netlify.app)**
+
+<p>
+  <img src="https://github.com/user-attachments/assets/fce114d5-d37e-4525-966a-2be176aaad59" alt="Start Screen" width="49%">
+  <img src="https://github.com/user-attachments/assets/471448af-46b1-4089-9c57-a6f15df9b77a" alt="Workout Screen" width="49%">
+</p>
 
 ## 🎿 What is this?
 
