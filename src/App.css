@@ -33,6 +33,7 @@ body {
   font-family: 'Outfit', sans-serif;
   background: var(--midnight);
   color: var(--snow-white);
+  direction: ltr;
 }
 
 /* Dark gradient background - all screens */
@@ -52,7 +53,7 @@ body {
 .fullscreen-btn {
   position: fixed;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -82,6 +83,7 @@ body {
 /* Main layout with sidebar */
 .main-layout {
   display: flex;
+  flex-direction: row;
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -106,7 +108,7 @@ body {
 .logo-icon {
   font-size: 5rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   animation: bounce 2s ease-in-out infinite;
 }
 
@@ -386,7 +388,7 @@ body {
   width: 280px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -666,6 +668,10 @@ body {
     overflow: hidden;
   }
 
+  .language-btn {
+    right: 3.5rem;
+  }
+
   .timeline-sidebar {
     grid-row: 2;
     width: 100%;
@@ -847,5 +853,182 @@ body {
 
   .timeline-name {
     font-size: 0.95rem;
+  }
+}
+
+/* Language Selector Button */
+.language-btn {
+  position: fixed;
+  top: 1rem;
+  right: 4.5rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.language-btn:active {
+  transform: scale(0.95);
+}
+
+/* RTL Support */
+.app.rtl {
+  direction: rtl;
+  font-family: 'Heebo', 'Outfit', sans-serif;
+}
+
+/* Set body direction for RTL */
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Hebrew font for headings - Rubik is bold and modern */
+.app.rtl .logo h1,
+.app.rtl .exercise-name,
+.app.rtl .complete-screen h1,
+.app.rtl .timer-seconds,
+.app.rtl .stat-value {
+  font-family: 'Rubik', 'Heebo', sans-serif;
+  font-weight: 800;
+}
+
+.app.rtl .fullscreen-btn {
+  right: auto;
+  left: 1rem;
+}
+
+.app.rtl .language-btn {
+  right: auto;
+  left: 4.5rem;
+}
+
+.app.rtl .timeline-sidebar {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app.rtl .timeline-item {
+  text-align: right;
+}
+
+.app.rtl .timeline-item.active {
+  border-left: none;
+  border-right: 3px solid var(--phase-color);
+}
+
+.app.rtl .start-button {
+  flex-direction: row;
+  font-family: 'Rubik', 'Heebo', sans-serif;
+  font-weight: 700;
+}
+
+.app.rtl .info-card {
+  flex-direction: row-reverse;
+}
+
+.app.rtl .next-preview {
+  flex-direction: row;
+}
+
+.app.rtl .timeline-content {
+  text-align: right;
+}
+
+.app.rtl .phase-badge {
+  font-family: 'Rubik', 'Heebo', sans-serif;
+  font-weight: 600;
+}
+
+.app.rtl .timeline-name {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+}
+
+/* RTL text direction for content */
+.app.rtl .exercise-name,
+.app.rtl .exercise-note,
+.app.rtl .complete-message,
+.app.rtl .tip,
+.app.rtl .next-name,
+.app.rtl .stat-label,
+.app.rtl .complete-screen h1 {
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: center;
+}
+
+.app.rtl .timeline-name {
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: right;
+}
+
+.app.rtl .next-label {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+/* RTL Mobile adjustments */
+@media (max-width: 500px) {
+  .app.rtl .timeline-item.active {
+    border-right: none;
+  }
+
+  .app.rtl .fullscreen-btn {
+    left: 1rem;
+    right: auto;
+  }
+
+  .app.rtl .language-btn {
+    right: auto;
+    left: 3.5rem;
+  }
+}
+
+/* Hebrew font sizing adjustments */
+.app.rtl .exercise-name {
+  font-size: 3.5rem;
+}
+
+.app.rtl .logo h1 {
+  font-size: 3.5rem;
+  letter-spacing: 0;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .app.rtl .exercise-name {
+    font-size: 2rem;
+  }
+
+  .app.rtl .logo h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .app.rtl .exercise-name {
+    font-size: 1.8rem;
+  }
+
+  .app.rtl .logo h1 {
+    font-size: 2rem;
   }
 }
