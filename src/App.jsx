@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, memo } from 'react';
+import { useState, useEffect, useCallback, useRef, memo, useMemo } from 'react';
 import { getWorkoutSequence, getTotalWorkoutTime } from './workoutData';
 import { getWorkoutSequenceHe, getTotalWorkoutTimeHe } from './workoutDataHe';
 import { useLanguage } from './LanguageContext';
@@ -57,7 +57,8 @@ const Timeline = memo(function Timeline({
   showHeader = true,
   t,
   isRTL,
-  getShortPhase
+  getShortPhase,
+  realExerciseCount
 }) {
   const activeItemRef = useRef(null);
   const listRef = useRef(null);
@@ -88,7 +89,7 @@ const Timeline = memo(function Timeline({
         <div className="timeline-header">
           <span className="timeline-title">{t.timeline}</span>
           <span className="timeline-progress">
-            {workoutState === 'idle' ? `${workoutSequence.length} ${t.exercisesCount}` : `${currentIndex + 1}/${workoutSequence.length}`}
+            {workoutState === 'idle' ? `${realExerciseCount} ${t.exercisesCount}` : `${currentIndex + 1}/${workoutSequence.length}`}
           </span>
         </div>
       )}
@@ -155,6 +156,21 @@ function App() {
   const workoutSequence = language === 'he' ? getWorkoutSequenceHe() : getWorkoutSequence();
   const totalWorkoutTime = language === 'he' ? getTotalWorkoutTimeHe() : getTotalWorkoutTime();
   const currentExercise = workoutSequence[currentIndex];
+
+  // Count real exercises (exclude prep and complete phases)
+  const realExerciseCount = useMemo(() => {
+    return workoutSequence.filter(ex => ex.phase !== 'prep' && ex.phase !== 'complete').length;
+  }, [workoutSequence]);
+
+  // Find the next actual exercise (skip prep phases)
+  const getNextExercise = useCallback(() => {
+    for (let i = currentIndex + 1; i < workoutSequence.length; i++) {
+      if (workoutSequence[i].phase !== 'prep') {
+        return workoutSequence[i];
+      }
+    }
+    return null;
+  }, [currentIndex, workoutSequence]);
 
   // Get short phase label based on language
   const getShortPhase = useCallback((phase) => {
@@ -281,6 +297,7 @@ function App() {
             t={t}
             isRTL={isRTL}
             getShortPhase={getShortPhase}
+            realExerciseCount={realExerciseCount}
           />
           <div className="start-screen">
 
@@ -297,7 +314,7 @@ function App() {
               </div>
               <div className="info-card">
                 <span className="info-icon">💪</span>
-                <span className="info-text">{workoutSequence.length - 2} {t.exercises}</span>
+                <span className="info-text">{realExerciseCount} {t.exercises}</span>
               </div>
               <div className="info-card">
                 <span className="info-icon">🔥</span>
@@ -338,6 +355,7 @@ function App() {
             t={t}
             isRTL={isRTL}
             getShortPhase={getShortPhase}
+            realExerciseCount={realExerciseCount}
           />
           <div className="complete-screen">
             <div className="complete-icon">🏔️</div>
@@ -389,6 +407,7 @@ function App() {
           t={t}
           isRTL={isRTL}
           getShortPhase={getShortPhase}
+          realExerciseCount={realExerciseCount}
         />
         {/* Main workout display */}
         <div className="workout-main">
@@ -437,12 +456,15 @@ function App() {
           </div>
 
           {/* Next exercise preview */}
-          {currentIndex < workoutSequence.length - 1 && (
-            <div className="next-preview">
-              <span className="next-label">{t.next}</span>
-              <span className="next-name">{workoutSequence[currentIndex + 1].name}</span>
-            </div>
-          )}
+          {(() => {
+            const nextExercise = getNextExercise();
+            return nextExercise && nextExercise.phase !== 'complete' ? (
+              <div className="next-preview">
+                <span className="next-label">{t.next}</span>
+                <span className="next-name">{nextExercise.name}</span>
+              </div>
+            ) : null;
+          })()}
         </div>
       </div>
     </div>

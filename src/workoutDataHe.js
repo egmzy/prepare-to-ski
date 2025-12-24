@@ -44,84 +44,84 @@ export const workoutDataHe = {
     circuit: [
         {
             name: "סקוואט",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Endurance",
             note: "משקל על העקבים; גב ישר"
         },
         {
             name: "ישיבה מול קיר",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Endurance",
             note: "ברכיים ב-90 מעלות; גב צמוד לקיר"
         },
         {
             name: "מכרעים קדימה",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Strength",
             note: "רגליים לסירוגין; לשמור על שיווי משקל"
         },
         {
             name: "סקוואט קוזאק",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Lateral",
             note: "פיסוק רחב; ירידה עמוקה הצידה בכל פעם"
         },
         {
             name: "סקוואט קפיצה",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Power",
             note: "נחיתה רכה לספיגת ה\"מוגולים\""
         },
         {
             name: "ישיבה מול קיר (סבב 2)",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Endurance",
             note: "ידיים לצדי הגוף (לא על הברכיים)!"
         },
         {
             name: "פלאנק",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Core",
             note: "גוף בקו ישר; לכווץ ישבן"
         },
         {
             name: "פלאנק צידי",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Core",
             note: "30 שניות לכל צד; אגן גבוה"
         },
         {
             name: "טיפוס הרים",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Agility",
             note: "קצב מהיר; ידיים מתחת לכתפיים"
         },
         {
             name: "פיתולים רוסיים",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Rotation",
             note: "רגליים באוויר; נגיעה ברצפה בכל צד"
         },
         {
             name: "בירד-דוג",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Stability",
             note: "הרמת יד ורגל נגדית; ללא נדנוד אגן"
         },
         {
             name: "מכרע צידי",
-            duration: 60,
+            duration: 45,
             phase: "circuit",
             focus: "Lateral",
             note: "מדמה העברת משקל בין המגלשיים"
@@ -166,11 +166,24 @@ export const workoutDataHe = {
 
 // Build the full workout sequence in Hebrew
 export function getWorkoutSequenceHe() {
+    // Create circuit with prep phases between each exercise
+    const circuitWithPrep = [];
+    workoutDataHe.circuit.forEach((exercise) => {
+        // Add 10-second prep before each circuit exercise
+        circuitWithPrep.push({
+            name: `הכנה: ${exercise.name}`,
+            duration: 10,
+            phase: "prep",
+            note: `התרגיל הבא: ${exercise.name}`
+        });
+        circuitWithPrep.push(exercise);
+    });
+
     return [
         workoutDataHe.getReady,
         ...workoutDataHe.warmUp,
         workoutDataHe.rest1,
-        ...workoutDataHe.circuit,
+        ...circuitWithPrep,
         workoutDataHe.rest2,
         ...workoutDataHe.recovery,
         workoutDataHe.complete

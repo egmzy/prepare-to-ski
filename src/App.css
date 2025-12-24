@@ -768,6 +768,14 @@ body {
     opacity: 0.6;
   }
 
+  /* Normalize timeline-home button on mobile */
+  .timeline-item.timeline-home {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+    margin-right: 0;
+  }
+
   .start-screen,
   .workout-main,
   .complete-screen {
@@ -992,13 +1000,13 @@ html[dir="rtl"] body {
   }
 
   .app.rtl .fullscreen-btn {
-    left: 1rem;
     right: auto;
+    left: 1rem;
   }
 
   .app.rtl .language-btn {
     right: auto;
-    left: 3.5rem;
+    left: 4rem;
   }
 }
 
