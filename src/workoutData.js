@@ -22,13 +22,13 @@ export const workoutData = {
     },
     {
       name: "Hip Openers",
-      duration: 60,
+      duration: 40,
       phase: "warm-up",
-      note: "Open up those hips for better mobility"
+      note: "10s each leg, each direction (front-back, back-front)"
     },
     {
       name: "Torso Twists",
-      duration: 60,
+      duration: 30,
       phase: "warm-up",
       note: "Rotate your upper body, keep hips stable"
     }
@@ -36,7 +36,7 @@ export const workoutData = {
 
   rest1: {
     name: "Rest & Breathe",
-    duration: 20,
+    duration: 10,
     phase: "rest",
     note: "Get ready for the main circuit!"
   },
@@ -51,7 +51,7 @@ export const workoutData = {
     },
     {
       name: "Wall Sit",
-      duration: 45,
+      duration: 30,
       phase: "circuit",
       focus: "Endurance",
       note: "90° angle at knees; back flat against wall"
@@ -79,24 +79,24 @@ export const workoutData = {
     },
     {
       name: "Wall Sit (Round 2)",
-      duration: 45,
+      duration: 30,
       phase: "circuit",
       focus: "Endurance",
       note: "Embrace the burn; keep hands off thighs!"
     },
     {
       name: "Plank",
-      duration: 45,
+      duration: 60,
       phase: "circuit",
       focus: "Core",
       note: "Tighten glutes; no sagging hips"
     },
     {
       name: "Side Plank",
-      duration: 45,
+      duration: 40,
       phase: "circuit",
       focus: "Core",
-      note: "30s per side; keep hips high"
+      note: "20s per side; keep hips high"
     },
     {
       name: "Mountain Climbers",
@@ -114,17 +114,17 @@ export const workoutData = {
     },
     {
       name: "Bird-Dogs",
-      duration: 45,
+      duration: 60,
       phase: "circuit",
       focus: "Stability",
       note: "Slow movement; avoid arching back"
     },
     {
-      name: "Lateral Lunges",
+      name: "Skater Jumps",
       duration: 45,
       phase: "circuit",
       focus: "Lateral",
-      note: "Mimics weight transfer on skis"
+      note: "Explosive lateral jumps; land softly on one leg"
     }
   ],
 
@@ -138,13 +138,13 @@ export const workoutData = {
   recovery: [
     {
       name: "Single-Leg Stand (Left)",
-      duration: 60,
+      duration: 30,
       phase: "recovery",
       note: "Close eyes to simulate 'flat light' visibility"
     },
     {
       name: "Single-Leg Stand (Right)",
-      duration: 60,
+      duration: 30,
       phase: "recovery",
       note: "Close eyes to simulate 'flat light' visibility"
     },

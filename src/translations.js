@@ -5,7 +5,7 @@ export const translations = {
         appTitle: "Prepare to Ski",
 
         // Start screen
-        minutes: "18 minutes",
+        minutes: "16 minutes",
         exercises: "exercises",
         fullBody: "Full body",
         startWorkout: "Start Workout",
@@ -54,7 +54,7 @@ export const translations = {
         appTitle: "הכנה לסקי",
 
         // Start screen
-        minutes: "18 דקות",
+        minutes: "16 דקות",
         exercises: "תרגילים",
         fullBody: "כל הגוף",
         startWorkout: "התחל אימון",

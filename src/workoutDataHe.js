@@ -12,23 +12,23 @@ export const workoutDataHe = {
             name: "הנפות רגליים (קדימה/אחורה)",
             duration: 30,
             phase: "warm-up",
-            note: "30 שניות לכל רגל - קדימה ואחורה"
+            note: "15 שניות לכל רגל - קדימה ואחורה"
         },
         {
             name: "הנפות רגליים (לצדדים)",
             duration: 30,
             phase: "warm-up",
-            note: "30 שניות לכל רגל - מצד לצד"
+            note: "15 שניות לכל רגל - מצד לצד"
         },
         {
             name: "פתיחת מפרק ירך",
-            duration: 60,
+            duration: 40,
             phase: "warm-up",
-            note: "פותחים את מפרקי הירך לניידות טובה יותר"
+            note: "10 שניות לכל רגל, כל כיוון"
         },
         {
             name: "פיתולי גו",
-            duration: 60,
+            duration: 30,
             phase: "warm-up",
             note: "סובבו את פלג הגוף העליון, שמרו על יציבות האגן"
         }
@@ -36,7 +36,7 @@ export const workoutDataHe = {
 
     rest1: {
         name: "מנוחה ונשימה",
-        duration: 20,
+        duration: 10,
         phase: "rest",
         note: "יאלללה הכנה לסבב העיקרי!"
     },
@@ -51,7 +51,7 @@ export const workoutDataHe = {
         },
         {
             name: "ישיבה מול קיר",
-            duration: 45,
+            duration: 30,
             phase: "circuit",
             focus: "Endurance",
             note: "ברכיים ב-90 מעלות; גב צמוד לקיר"
@@ -79,24 +79,24 @@ export const workoutDataHe = {
         },
         {
             name: "ישיבה מול קיר (סבב 2)",
-            duration: 45,
+            duration: 30,
             phase: "circuit",
             focus: "Endurance",
             note: "ידיים לצדי הגוף (לא על הברכיים)!"
         },
         {
             name: "פלאנק",
-            duration: 45,
+            duration: 60,
             phase: "circuit",
             focus: "Core",
             note: "גוף בקו ישר; לכווץ ישבן"
         },
         {
             name: "פלאנק צידי",
-            duration: 45,
+            duration: 40,
             phase: "circuit",
             focus: "Core",
-            note: "30 שניות לכל צד; אגן גבוה"
+            note: "20 שניות לכל צד; אגן גבוה"
         },
         {
             name: "טיפוס הרים",
@@ -114,17 +114,17 @@ export const workoutDataHe = {
         },
         {
             name: "בירד-דוג",
-            duration: 45,
+            duration: 60,
             phase: "circuit",
             focus: "Stability",
             note: "הרמת יד ורגל נגדית; ללא נדנוד אגן"
         },
         {
-            name: "מכרע צידי",
+            name: "קפיצות גולש",
             duration: 45,
             phase: "circuit",
             focus: "Lateral",
-            note: "מדמה העברת משקל בין המגלשיים"
+            note: "קפיצות צד נמרצות; נחיתה רכה על רגל אחת"
         }
     ],
 
@@ -138,13 +138,13 @@ export const workoutDataHe = {
     recovery: [
         {
             name: "עמידה על רגל אחת (שמאל)",
-            duration: 60,
+            duration: 30,
             phase: "recovery",
             note: "עצמו עיניים לסימולציה של ערפל/תאורה שטוחה במסלול"
         },
         {
             name: "עמידה על רגל אחת (ימין)",
-            duration: 60,
+            duration: 30,
             phase: "recovery",
             note: "עצמו עיניים לסימולציה של ערפל/תאורה שטוחה במסלול"
         },
